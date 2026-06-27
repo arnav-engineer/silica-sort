@@ -1,0 +1,27 @@
+# Copyright (c) 2026 Silica Sort Developers
+# Licensed under the Apache License, Version 2.0.
+
+[project]
+name = "silica-sort"
+version = "0.1.0"
+description = "High-performance hybrid external sorting framework using Rust and Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26.0",
+]
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "silica_sort._silica_sort"
+
+[dependency-groups]
+dev = [
+    "maturin>=1.12.2",
+]
+

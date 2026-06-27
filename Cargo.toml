@@ -1,0 +1,27 @@
+# Copyright (c) 2026 Silica Sort Developers
+# Licensed under the Apache License, Version 2.0.
+
+[package]
+name = "silica-sort-backend"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "_silica_sort"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
+numpy = "0.20.0"
+rayon = "1.8.0"
+memmap2 = "0.9.0"
+raw-cpuid = "11.0.1"
+thiserror = "1.0.50"
+rand = "0.8.5"
+sysinfo = "0.38.4"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+
